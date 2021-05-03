@@ -1,4 +1,8 @@
 <template>
+  <header>
+    <Title />
+    <Instructions />
+  </header>
   <main class="dashboard">
     <div class="selected-card">
       <Card :character="chosenCharacter" :closed="isClosed" />
@@ -18,12 +22,16 @@
 
 <script>
 import Card from "./components/Card";
+import Title from "./components/Title";
+import Instructions from "./components/Instructions";
 import { getCharacters, randomNumber } from "./utils/api";
 export default {
   name: "App",
 
   components: {
     Card,
+    Title,
+    Instructions,
   },
   data() {
     return {
@@ -53,13 +61,14 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Merriweather&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 .dashboard {
   display: flex;
