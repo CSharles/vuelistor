@@ -1,13 +1,17 @@
 <template>
   <main class="dashboard">
     <div class="selected-card">
-      <Card :character="chosenCharacter" :closed="true" />
+      <Card :character="chosenCharacter" :closed="isClosed" />
     </div>
 
     <div class="options">
-
-    <Card v-for="option in options" :key="option.id" :character="option" :closed="false" />
-
+      <Card
+        v-for="option in options"
+        :key="option.id"
+        :character="option"
+        :closed="false"
+        @click="validate(option.id)"
+      />
     </div>
   </main>
 </template>
@@ -25,6 +29,7 @@ export default {
     return {
       options: [],
       chosenCharacter: {},
+      isClosed: true,
     };
   },
   async beforeCreate() {
@@ -32,6 +37,17 @@ export default {
     const chosenCharacter = characters[randomNumber(0, 2)];
     this.options = characters;
     this.chosenCharacter = chosenCharacter;
+  },
+
+  methods: {
+    validate(chosenCharacter) {
+      if (chosenCharacter === this.chosenCharacter.id) {
+        this.isClosed = false;
+        alert("¡Lo has adivinado!");
+      } else {
+        alert("Personaje incorrecto, inténtalo de nuevo");
+      }
+    },
   },
 };
 </script>

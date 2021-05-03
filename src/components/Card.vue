@@ -28,6 +28,8 @@ export default {
     transition: all ease 0.5s;
     transform-style: preserve-3d;
     transform: perspective(600px) rotateY(0deg);
+    
+    
 }
 .card .front {
     padding: 15px;
@@ -51,7 +53,6 @@ export default {
 }
 .card.closed {
     transform: perspective(600px) rotateY(180deg);
-    content: '';
 }
 .card h2 {
     text-align: center;
