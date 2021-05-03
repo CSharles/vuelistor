@@ -1,11 +1,11 @@
 <template>
-    <div class="card">
+    <div class="card" :class="{ closed }">
         <div class="front">
 
-            <h2>Rick Sánchez</h2>
+            <h2>{{ character.name }}</h2>
             
             <picture class="image-container">
-                <img src="https://i.pinimg.com/originals/ac/51/52/ac5152b9f7f50781b2b01e35463fc4e6.jpg" alt="Rick Sánchez">
+                <img :src="character.image" :alt="character.name">
             </picture>
 
         </div>
@@ -51,6 +51,7 @@ export default {
 }
 .card.closed {
     transform: perspective(600px) rotateY(180deg);
+    content: '';
 }
 .card h2 {
     text-align: center;

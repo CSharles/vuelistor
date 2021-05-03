@@ -5,9 +5,9 @@
     </div>
 
     <div class="options">
-      <Card />
-      <Card />
-      <Card />
+
+    <Card v-for="option in options" :key="option.id" :character="option" :closed="false" />
+
     </div>
   </main>
 </template>
