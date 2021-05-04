@@ -9,6 +9,7 @@
             </picture>
 
         </div>
+        <div class="back"></div>
     </div>
 </template>
 
@@ -39,7 +40,7 @@ export default {
     background: #fff;
     backface-visibility: hidden;
 }
-.card::before {
+.card .back {
     content: '';
     display: inline-block;
     width: 100%;
@@ -51,8 +52,13 @@ export default {
     border-radius: 5px;
     z-index: -1;
 }
+
+
 .card.closed {
     transform: perspective(600px) rotateY(180deg);
+}
+.card.card.closed .back {
+        z-index: 1;
 }
 .card h2 {
     text-align: center;
